@@ -1,33 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Catálogo Apoiaris E-Books — Explore nossa coleção de conteúdos práticos."/>
   <title>Catálogo — Apoiaris E-Books</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="description" content="Catálogo Apoiaris E-Books — Explore nossa coleção de conteúdos práticos." />
+  <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    .filtro-btn {
-      background: rgba(255,255,255,0.05);
-      border: 1.5px solid rgba(255,255,255,0.12);
-      border-radius: 100px;
-      padding: 0.4rem 1rem;
-      font-size: 0.83rem;
-      font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
-      cursor: pointer;
-      color: rgba(255,255,255,0.70);
-      transition: all 0.2s;
-    }
-    .filtro-btn:hover, .filtro-ativo {
-      background: #7C3AED;
-      color: #fff;
-      border-color: #7C3AED;
-      box-shadow: 0 0 16px rgba(124,58,237,0.35);
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
   <!-- Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -42,237 +23,268 @@
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1538312574315932&ev=PageView&noscript=1"/></noscript>
-  <!-- Fim Meta Pixel -->
+  <style>
+    .ebook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .ebook-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .ebook-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .ebook-img {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+    .ebook-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5);
+      transition: filter 0.3s;
+    }
+    .ebook-card:hover .ebook-img img { filter: brightness(0.65); }
+    .ebook-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,14,30,0.95) 0%, transparent 60%);
+    }
+    .ebook-badge-cat {
+      position: absolute; top: 1rem; left: 1rem;
+      background: rgba(20,184,166,0.2);
+      border: 1px solid rgba(20,184,166,0.45);
+      color: #14B8A6;
+      font-size: 0.72rem; font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      padding: 0.3rem 0.8rem; border-radius: 100px;
+    }
+    .ebook-badge-hot {
+      position: absolute; top: 1rem; right: 1rem;
+      background: #7C3AED;
+      color: #fff;
+      font-size: 0.72rem; font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      padding: 0.3rem 0.8rem; border-radius: 100px;
+    }
+    .ebook-img-title {
+      position: absolute; bottom: 1rem; left: 1rem; right: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 1rem;
+      color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+    .ebook-body { padding: 1.5rem; }
+    .ebook-cat-label {
+      font-size: 0.72rem; font-weight: 700;
+      color: rgba(255,255,255,0.40);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+    .ebook-body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem; font-weight: 800;
+      color: #fff; margin-bottom: 0.6rem; line-height: 1.3;
+    }
+    .ebook-body p {
+      font-size: 0.88rem; color: rgba(255,255,255,0.55);
+      line-height: 1.6; margin-bottom: 1rem;
+    }
+    .ebook-footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .ebook-preco-de {
+      font-size: 0.8rem; color: rgba(255,255,255,0.3);
+      text-decoration: line-through;
+    }
+    .ebook-preco-por {
+      font-size: 1.5rem; font-weight: 900;
+      color: #14B8A6; font-family: 'Montserrat', sans-serif;
+      line-height: 1;
+    }
+    .btn-ver {
+      background: linear-gradient(135deg, #7C3AED, #5B21B6);
+      color: #fff; border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem; font-weight: 800;
+      padding: 0.6rem 1.2rem; border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .btn-ver:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(124,58,237,0.45);
+      color: #fff;
+    }
+    .coming-soon {
+      background: rgba(255,255,255,0.04);
+      border: 1.5px dashed rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 200px;
+    }
+    .coming-soon .icon { font-size: 2rem; margin-bottom: 1rem; }
+    .coming-soon h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; color: rgba(255,255,255,0.35);
+      margin-bottom: 0.5rem;
+    }
+    .coming-soon p { color: rgba(255,255,255,0.25); font-size: 0.88rem; }
+  </style>
 </head>
-<body>
+<body class="is-preload">
 
-  <div class="top-bar">
-    ⚡ <span>OFERTAS ESPECIAIS</span> · Dois e-books disponíveis ·
-    <a href="catalogo/transitosemmedo.html" style="color:#FFD700; text-decoration:underline;">Ver agora →</a>
+  <div class="oferta-bar">
+    ⚡ <strong>OFERTA ESPECIAL</strong> · E-book de Trânsito por apenas R$ 24,90 ·
+    <a href="catalogo/transitosemmedo.html">Garantir agora →</a>
   </div>
 
-  <nav class="navbar">
-    <a href="index.html" class="navbar-logo">
-      <img src="assets/logos/logo-horizontal-transparente.png" alt="Apoiaris E-Books" />
-    </a>
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="quem-somos.html">Quem Somos</a></li>
-      <li><a href="catalogo.html" class="active">Catálogo</a></li>
-      <li><a href="contato.html">Contato</a></li>
-      <li><a href="catalogo/transitosemmedo.html" class="nav-cta">Ver E-Books</a></li>
-    </ul>
-  </nav>
-
-  <section class="page-hero">
-    <p style="color:#14B8A6; font-size:0.75rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-family:'Montserrat',sans-serif; margin-bottom:0.6rem;">📚 Nossa Coleção</p>
-    <h1>Catálogo de E-Books</h1>
-    <p>Conteúdo prático e acessível para o seu crescimento pessoal e profissional.</p>
+  <section id="sidebar">
+    <div class="inner">
+      <div class="sidebar-logo">
+        <img src="assets/logos/logo-horizontal-transparente.png" alt="Apoiaris E-Books" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="../index.html#ebooks">Nossos E-Books</a></li>
+          <li><a href="../index.html#beneficios">Por que Apoiaris?</a></li>
+          <li><a href="../index.html#contato">Fale Conosco</a></li>
+        </ul>
+      </nav>
+    </div>
   </section>
 
-  <!-- FILTROS -->
-  <div style="background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.06); padding:1rem 2rem;">
-    <div style="max-width:1100px; margin:0 auto; display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
-      <span style="font-size:0.82rem; color:#64748B; font-weight:600; font-family:'Montserrat',sans-serif;">Filtrar:</span>
-      <button onclick="filtrar('todos')"    class="filtro-btn filtro-ativo" id="btn-todos">Todos</button>
-      <button onclick="filtrar('transito')" class="filtro-btn" id="btn-transito">🚗 Trânsito</button>
-      <button onclick="filtrar('negocios')" class="filtro-btn" id="btn-negocios">💰 Negócios</button>
-      <button onclick="filtrar('seguranca')" class="filtro-btn" id="btn-seguranca">🛡️ Segurança</button>
-    </div>
+  <div id="wrapper">
+
+    <!-- HERO -->
+    <section class="wrapper style1 fade-up" style="padding: 4rem 0 3rem;">
+      <div class="inner">
+        <p style="color:#14B8A6; font-size:0.75rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; font-family:'Montserrat',sans-serif; margin-bottom:0.5rem;">📚 Nossa Coleção</p>
+        <h1 style="font-family:'Montserrat',sans-serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:900; color:#fff; margin-bottom:1rem;">Catálogo de E-Books</h1>
+        <p style="color:rgba(255,255,255,0.60); max-width:580px; font-size:1rem; line-height:1.7;">Conteúdo prático e acessível para o seu crescimento pessoal e profissional. Todos em PDF, acesso imediato.</p>
+      </div>
+    </section>
+
+    <!-- GRID DE E-BOOKS -->
+    <section class="wrapper style2 fade-up">
+      <div class="inner">
+        <div class="ebook-grid">
+
+          <!-- E-Book 1 — Trânsito -->
+          <div class="ebook-card">
+            <div class="ebook-img">
+              <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=600&q=80&auto=format&fit=crop&crop=center" alt="101 Dicas de Sobrevivência no Trânsito" />
+              <div class="ebook-img-overlay"></div>
+              <div class="ebook-badge-cat">🚗 Trânsito</div>
+              <div class="ebook-badge-hot">⭐ Mais Vendido</div>
+              <div class="ebook-img-title">101 Dicas de Sobrevivência no Trânsito</div>
+            </div>
+            <div class="ebook-body">
+              <div class="ebook-cat-label">🚗 Trânsito · Novos Motoristas</div>
+              <h3>101 Dicas de Sobrevivência no Trânsito</h3>
+              <p>O guia definitivo para novos motoristas. Das regras básicas às situações de risco — tudo que você precisa para dirigir com segurança no Brasil. Inclui 3 bônus exclusivos.</p>
+              <div class="pill-list">
+                <span class="pill-item">✓ 101 dicas</span>
+                <span class="pill-item">✓ 3 bônus</span>
+                <span class="pill-item">✓ PDF completo</span>
+              </div>
+              <div class="ebook-footer">
+                <div>
+                  <div class="ebook-preco-de">R$ 47,00</div>
+                  <div class="ebook-preco-por">R$ 24,90</div>
+                </div>
+                <a href="catalogo/transitosemmedo.html" class="btn-ver" onclick="fbq('track','ViewContent',{content_name:'101 Dicas Transito',value:24.90,currency:'BRL'})">Ver oferta →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- E-Book 2 — Mapa da Mina -->
+          <div class="ebook-card">
+            <div class="ebook-img">
+              <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80&auto=format&fit=crop&crop=center" alt="O Mapa da Mina na 44" />
+              <div class="ebook-img-overlay"></div>
+              <div class="ebook-badge-cat" style="background:rgba(197,168,128,0.2); border-color:rgba(197,168,128,0.45); color:#C5A880;">💰 Negócios</div>
+              <div class="ebook-img-title">O Mapa da Mina na 44</div>
+            </div>
+            <div class="ebook-body">
+              <div class="ebook-cat-label">💰 Negócios · Revendedores · Goiânia</div>
+              <h3>O Mapa da Mina na 44</h3>
+              <p>Guia estratégico para revendedores e sacoleiros lucrarem na Região da 44 em Goiânia. Economize tempo, evite ciladas e maximize seu lucro.</p>
+              <div class="pill-list">
+                <span class="pill-item" style="background:rgba(197,168,128,0.10); border-color:rgba(197,168,128,0.28); color:#C5A880;">✓ 5 capítulos</span>
+                <span class="pill-item" style="background:rgba(197,168,128,0.10); border-color:rgba(197,168,128,0.28); color:#C5A880;">✓ Lista fornecedores</span>
+                <span class="pill-item" style="background:rgba(197,168,128,0.10); border-color:rgba(197,168,128,0.28); color:#C5A880;">✓ Anti-golpe</span>
+              </div>
+              <div class="ebook-footer">
+                <div>
+                  <div class="ebook-preco-de">R$ 47,00</div>
+                  <div class="ebook-preco-por" style="color:#C5A880;">R$ 27,90</div>
+                </div>
+                <a href="catalogo/mapadamina44.html" class="btn-ver" onclick="fbq('track','ViewContent',{content_name:'Mapa da Mina na 44',value:27.90,currency:'BRL'})">Ver oferta →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Em breve -->
+          <div class="coming-soon">
+            <div class="icon">🚀</div>
+            <h3>Novo título em breve</h3>
+            <p>Estamos trabalhando em novos conteúdos. Fique de olho!</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="wrapper style3 fade-up">
+      <div class="inner" style="text-align:center;">
+        <p style="color:#14B8A6; font-size:0.75rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; font-family:'Montserrat',sans-serif; margin-bottom:0.5rem;">Garantia Total</p>
+        <h2 style="font-family:'Montserrat',sans-serif; font-weight:900; color:#fff;">7 dias ou seu dinheiro de volta</h2>
+        <p style="color:rgba(255,255,255,0.60); max-width:500px; margin:0 auto 2rem;">Compramos só o que realmente entrega valor. Se não gostar, devolvemos 100% — sem perguntas.</p>
+        <ul class="actions" style="justify-content:center;">
+          <li><a href="../index.html#contato" class="button primary">Fale Conosco →</a></li>
+          <li><a href="quem-somos.html" class="button">Conheça a Apoiaris</a></li>
+        </ul>
+      </div>
+    </section>
+
   </div>
 
-  <section class="section">
-
-    <!-- GRID PRINCIPAL: 2 COLUNAS -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-bottom:3rem;" id="ebooksGrid">
-
-      <!-- ── E-BOOK 1: TRÂNSITO ── -->
-      <div class="ebook-card" data-categoria="transito" style="display:flex;">
-        <div class="ebook-cover" style="padding:0; min-height:260px; position:relative;">
-          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80&auto=format&fit=crop"
-               alt="101 Dicas de Sobrevivência no Trânsito"
-               style="width:100%; height:260px; object-fit:cover; display:block; filter:brightness(0.45);" />
-          <div style="position:absolute; inset:0; background:linear-gradient(to top, #131929 0%, transparent 55%);"></div>
-          <span class="ebook-badge" style="top:12px; right:12px;">⭐ Mais Vendido</span>
-          <div style="position:absolute; top:12px; left:12px; background:rgba(20,184,166,0.25); border:1px solid rgba(20,184,166,0.4); color:#14B8A6; font-size:0.7rem; font-weight:700; font-family:'Montserrat',sans-serif; padding:0.25rem 0.7rem; border-radius:100px;">🚗 Trânsito</div>
-          <div style="position:absolute; bottom:1rem; left:1rem; right:1rem;">
-            <p style="color:#fff; font-weight:800; font-family:'Montserrat',sans-serif; font-size:1rem; text-shadow:0 2px 6px rgba(0,0,0,0.8);">101 Dicas de Sobrevivência no Trânsito</p>
-          </div>
-        </div>
-        <div class="ebook-info">
-          <span class="ebook-category">🚗 Trânsito · Novos Motoristas</span>
-          <h3>101 Dicas de Sobrevivência no Trânsito</h3>
-          <p>O guia definitivo para novos motoristas. Das regras básicas às situações de risco — tudo que você precisa para dirigir com segurança no Brasil. Inclui 3 bônus exclusivos.</p>
-          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
-            <span style="background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.25); color:#14B8A6; padding:0.2rem 0.7rem; border-radius:100px; font-size:0.75rem; font-weight:600; font-family:'Montserrat',sans-serif;">✓ 101 dicas</span>
-            <span style="background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.25); color:#14B8A6; padding:0.2rem 0.7rem; border-radius:100px; font-size:0.75rem; font-weight:600; font-family:'Montserrat',sans-serif;">✓ 3 bônus</span>
-            <span style="background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.25); color:#14B8A6; padding:0.2rem 0.7rem; border-radius:100px; font-size:0.75rem; font-weight:600; font-family:'Montserrat',sans-serif;">✓ PDF completo</span>
-          </div>
-          <div class="ebook-footer">
-            <div class="ebook-price">R$ 24,90<span>+ 3 bônus grátis</span></div>
-            <a href="catalogo/transitosemmedo.html" class="btn-comprar">Ver oferta →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── E-BOOK 2: MAPA DA MINA ── -->
-      <div class="ebook-card" data-categoria="negocios" style="display:flex;">
-        <div class="ebook-cover" style="padding:0; min-height:260px; position:relative;">
-          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80&auto=format&fit=crop"
-               alt="O Mapa da Mina na 44"
-               style="width:100%; height:260px; object-fit:cover; display:block; filter:brightness(0.45);" />
-          <div style="position:absolute; inset:0; background:linear-gradient(to top, #131929 0%, transparent 55%);"></div>
-          <span class="ebook-badge" style="top:12px; right:12px; background:#f97316;">🔥 Novo</span>
-          <div style="position:absolute; top:12px; left:12px; background:rgba(234,179,8,0.20); border:1px solid rgba(234,179,8,0.4); color:#eab308; font-size:0.7rem; font-weight:700; font-family:'Montserrat',sans-serif; padding:0.25rem 0.7rem; border-radius:100px;">💰 Negócios · Goiânia</div>
-          <div style="position:absolute; bottom:1rem; left:1rem; right:1rem;">
-            <p style="color:#eab308; font-weight:900; font-family:'Montserrat',sans-serif; font-size:1.1rem; text-shadow:0 2px 6px rgba(0,0,0,0.9); line-height:1.15;">O MAPA DA MINA NA 44</p>
-            <p style="color:#fff; font-size:0.78rem; font-weight:600; font-family:'Montserrat',sans-serif; margin-top:0.2rem;">GOIÂNIA</p>
-          </div>
-        </div>
-        <div class="ebook-info">
-          <span class="ebook-category">💰 Negócios · Revendedores · Goiânia</span>
-          <h3>O Mapa da Mina na 44</h3>
-          <p>Guia estratégico para revendedores e sacoleiros lucrarem na Região da 44. Economize 3 dias de caminhada, evite golpes e acesse a lista secreta de fornecedores.</p>
-          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
-            <span style="background:rgba(234,179,8,0.12); border:1px solid rgba(234,179,8,0.25); color:#eab308; padding:0.2rem 0.7rem; border-radius:100px; font-size:0.75rem; font-weight:600; font-family:'Montserrat',sans-serif;">✓ 5 capítulos</span>
-            <span style="background:rgba(234,179,8,0.12); border:1px solid rgba(234,179,8,0.25); color:#eab308; padding:0.2rem 0.7rem; border-radius:100px; font-size:0.75rem; font-weight:600; font-family:'Montserrat',sans-serif;">✓ Lista fornecedores</span>
-            <span style="background:rgba(234,179,8,0.12); border:1px solid rgba(234,179,8,0.25); color:#eab308; padding:0.2rem 0.7rem; border-radius:100px; font-size:0.75rem; font-weight:600; font-family:'Montserrat',sans-serif;">✓ Anti-golpe</span>
-          </div>
-          <div class="ebook-footer">
-            <div class="ebook-price">R$ 27,90<span>acesso imediato</span></div>
-            <a href="catalogo/mapadamina44.html" class="btn-comprar" style="background:linear-gradient(135deg,#f97316,#ea580c);">Ver oferta →</a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /grid principal -->
-
-    <!-- ── BÔNUS DA SÉRIE TRÂNSITO ── -->
-    <div style="margin-bottom:2rem;">
-      <p style="color:#14B8A6; font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; font-family:'Montserrat',sans-serif; margin-bottom:1rem; text-align:center;">🎁 Bônus incluídos na série Trânsito</p>
-      <div class="ebooks-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
-
-        <div class="ebook-card" data-categoria="transito">
-          <div class="ebook-cover" style="padding:0; min-height:160px; position:relative;">
-            <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600&q=80&auto=format&fit=crop"
-                 alt="Guia de Multas"
-                 style="width:100%; height:160px; object-fit:cover; display:block; filter:brightness(0.45);" />
-            <div style="position:absolute; inset:0; background:linear-gradient(to top, #131929 0%, transparent 55%);"></div>
-            <span class="ebook-badge" style="top:10px; right:10px; background:#C5A880;">🎁 Bônus</span>
-          </div>
-          <div class="ebook-info" style="padding:1.2rem;">
-            <span class="ebook-category">📋 Bônus 1</span>
-            <h3 style="font-size:0.95rem;">Guia de Bolso: Multas que Mais Pegam o Novato</h3>
-            <div class="ebook-footer">
-              <div class="ebook-price"><span style="color:#14B8A6; font-size:0.88rem; font-weight:800;">Incluso no pacote</span></div>
-              <a href="catalogo/transitosemmedo.html" class="btn-comprar" style="font-size:0.8rem; padding:0.5rem 1rem;">Ver →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ebook-card" data-categoria="seguranca">
-          <div class="ebook-cover" style="padding:0; min-height:160px; position:relative;">
-            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80&auto=format&fit=crop"
-                 alt="Primeiros Socorros"
-                 style="width:100%; height:160px; object-fit:cover; display:block; filter:brightness(0.45);" />
-            <div style="position:absolute; inset:0; background:linear-gradient(to top, #131929 0%, transparent 55%);"></div>
-            <span class="ebook-badge" style="top:10px; right:10px; background:#C5A880;">🎁 Bônus</span>
-          </div>
-          <div class="ebook-info" style="padding:1.2rem;">
-            <span class="ebook-category">🩺 Bônus 2</span>
-            <h3 style="font-size:0.95rem;">Primeiros Socorros no Trânsito</h3>
-            <div class="ebook-footer">
-              <div class="ebook-price"><span style="color:#14B8A6; font-size:0.88rem; font-weight:800;">Incluso no pacote</span></div>
-              <a href="catalogo/transitosemmedo.html" class="btn-comprar" style="font-size:0.8rem; padding:0.5rem 1rem;">Ver →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ebook-card" data-categoria="transito">
-          <div class="ebook-cover" style="padding:0; min-height:160px; position:relative;">
-            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&q=80&auto=format&fit=crop"
-                 alt="Direção Defensiva"
-                 style="width:100%; height:160px; object-fit:cover; display:block; filter:brightness(0.45);" />
-            <div style="position:absolute; inset:0; background:linear-gradient(to top, #131929 0%, transparent 55%);"></div>
-            <span class="ebook-badge" style="top:10px; right:10px; background:#C5A880;">🎁 Bônus</span>
-          </div>
-          <div class="ebook-info" style="padding:1.2rem;">
-            <span class="ebook-category">🛡️ Bônus 3</span>
-            <h3 style="font-size:0.95rem;">Direção Defensiva — 30 Dicas</h3>
-            <div class="ebook-footer">
-              <div class="ebook-price"><span style="color:#14B8A6; font-size:0.88rem; font-weight:800;">Incluso no pacote</span></div>
-              <a href="catalogo/transitosemmedo.html" class="btn-comprar" style="font-size:0.8rem; padding:0.5rem 1rem;">Ver →</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ── CTA DUPLO ── -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:1rem;">
-
-      <div style="background:linear-gradient(135deg,rgba(20,184,166,0.12),rgba(20,184,166,0.04)); border-radius:16px; padding:2rem; border:1px solid rgba(20,184,166,0.25); text-align:center;">
-        <p style="color:#14B8A6; font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; font-family:'Montserrat',sans-serif; margin-bottom:0.5rem;">🚗 Série Trânsito</p>
-        <h3 style="font-size:1.2rem; font-weight:800; font-family:'Montserrat',sans-serif; margin-bottom:0.5rem; color:#fff;">E-book + 3 Bônus por R$ 24,90</h3>
-        <p style="color:#94A3B8; font-size:0.88rem; margin-bottom:1.2rem;">Para novos motoristas que querem dirigir com segurança e confiança.</p>
-        <a href="catalogo/transitosemmedo.html" class="btn-primary btn-pulse">Garantir o Pacote →</a>
-      </div>
-
-      <div style="background:linear-gradient(135deg,rgba(249,115,22,0.12),rgba(249,115,22,0.04)); border-radius:16px; padding:2rem; border:1px solid rgba(249,115,22,0.25); text-align:center;">
-        <p style="color:#f97316; font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; font-family:'Montserrat',sans-serif; margin-bottom:0.5rem;">💰 Negócios Goiânia</p>
-        <h3 style="font-size:1.2rem; font-weight:800; font-family:'Montserrat',sans-serif; margin-bottom:0.5rem; color:#fff;">Mapa da Mina + Fornecedores por R$ 27,90</h3>
-        <p style="color:#94A3B8; font-size:0.88rem; margin-bottom:1.2rem;">Para revendedores que querem lucrar mais na Região da 44.</p>
-        <a href="catalogo/mapadamina44.html" style="display:inline-block; background:linear-gradient(135deg,#f97316,#ea580c); color:#fff; padding:0.85rem 2rem; border-radius:8px; font-weight:700; font-size:0.97rem; font-family:'Montserrat',sans-serif; transition:box-shadow 0.2s; box-shadow:0 0 20px rgba(249,115,22,0.35);">Garantir o Acesso →</a>
-      </div>
-
-    </div>
-
-  </section>
-
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logos/logo-horizontal-transparente.png" alt="Apoiaris E-Books" style="filter:brightness(0) invert(1);" />
-        <p>Conhecimento prático a um clique de distância.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navegação</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="quem-somos.html">Quem Somos</a></li>
-          <li><a href="catalogo.html">Catálogo</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>E-Books</h4>
-        <ul>
-          <li><a href="catalogo/transitosemmedo.html">101 Dicas de Trânsito</a></li>
-          <li><a href="catalogo/mapadamina44.html">Mapa da Mina na 44</a></li>
-        </ul>
-        <div class="social-links" style="margin-top:1rem;">
-          <a href="#" class="social-btn">📸</a>
-          <a href="#" class="social-btn">📘</a>
-          <a href="#" class="social-btn">💬</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Apoiaris E-Books · <span>Uma empresa do Grupo Apoiaris ®</span></p>
+  <footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+      <ul class="menu">
+        <li>© 2025 Apoiaris E-Books · Grupo Apoiaris ®</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+        <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+      </ul>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script>
-    function filtrar(cat) {
-      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('filtro-ativo'));
-      document.getElementById('btn-' + cat).classList.add('filtro-ativo');
-      document.querySelectorAll('[data-categoria]').forEach(card => {
-        card.style.display = (cat === 'todos' || card.dataset.categoria === cat) ? 'flex' : 'none';
-      });
-    }
-  </script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

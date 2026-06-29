@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Entre em contato com a Apoiaris E-Books. Tire dúvidas, dê sugestões ou solicite suporte."/>
   <title>Contato — Apoiaris E-Books</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="description" content="Entre em contato com a Apoiaris E-Books. Tire dúvidas, dê sugestões ou solicite suporte." />
+  <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Meta Pixel -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
   <script>
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -22,235 +22,260 @@
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1538312574315932&ev=PageView&noscript=1"/></noscript>
-  <!-- Fim Meta Pixel -->
+  <style>
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .faq-question {
+      width:100%; background:none; border:none; cursor:pointer;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.2rem 0; color:#fff;
+      font-family:'Montserrat',sans-serif; font-size:0.97rem; font-weight:700;
+      text-align:left;
+    }
+    .faq-question .faq-icon { color:#14B8A6; font-size:1.4rem; flex-shrink:0; margin-left:1rem; transition:transform 0.3s; }
+    .faq-question.open .faq-icon { transform:rotate(45deg); }
+    .faq-answer { display:none; padding:0 0 1.2rem; color:rgba(255,255,255,0.60); font-size:0.92rem; line-height:1.7; }
+    .faq-answer.open { display:block; }
+    .info-card {
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+      border-radius:12px; padding:1.25rem 1.5rem;
+      display:flex; align-items:center; gap:1rem; margin-bottom:1rem;
+    }
+    .info-card-icon { font-size:1.5rem; flex-shrink:0; }
+    .info-card h4 { font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:800; color:#14B8A6; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.2rem; }
+    .info-card p, .info-card a { font-size:0.92rem; color:rgba(255,255,255,0.65); margin:0; }
+    .info-card a:hover { color:#14B8A6; }
+  </style>
 </head>
-<body>
+<body class="is-preload">
 
-  <!-- ======= NAVBAR ======= -->
-  <nav class="navbar">
-    <a href="index.html" class="navbar-logo">
-      <img src="assets/logos/logo-horizontal-transparente.png" style="filter:brightness(0) invert(1);" alt="Apoiaris E-Books" />
-    </a>
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="quem-somos.html">Quem Somos</a></li>
-      <li><a href="catalogo.html">Catálogo</a></li>
-      <li><a href="contato.html" class="active">Contato</a></li>
-      <li><a href="catalogo.html" class="nav-cta">Ver E-Books</a></li>
-    </ul>
-  </nav>
+  <div class="oferta-bar">
+    ⚡ <strong>OFERTA ESPECIAL</strong> · E-book de Trânsito por apenas R$ 24,90 ·
+    <a href="catalogo/transitosemmedo.html">Garantir agora →</a>
+  </div>
 
-  <!-- ======= PAGE HERO ======= -->
-  <section class="page-hero">
-    <p style="color:#2ec4b6; font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:0.6rem;">Estamos Aqui</p>
-    <h1>Fale Conosco</h1>
-    <p>Dúvidas, sugestões, suporte ou parcerias — responderemos o mais rápido possível.</p>
+  <section id="sidebar">
+    <div class="inner">
+      <div class="sidebar-logo">
+        <img src="assets/logos/logo-horizontal-transparente.png" alt="Apoiaris E-Books" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#ebooks">Nossos E-Books</a></li>
+          <li><a href="index.html#beneficios">Por que Apoiaris?</a></li>
+          <li><a href="contato.html" class="active">Fale Conosco</a></li>
+        </ul>
+      </nav>
+    </div>
   </section>
 
-  <!-- ======= CONTATO GRID ======= -->
-  <section class="section">
-    <div class="contact-grid">
+  <div id="wrapper">
 
-      <!-- INFO -->
-      <div class="contact-info">
-        <p style="color:#2ec4b6; font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:0.6rem;">Canais de Atendimento</p>
-        <h2>Como prefere falar com a gente?</h2>
-        <p>Estamos disponíveis por diferentes canais. O formulário ao lado funciona muito bem para dúvidas mais detalhadas.</p>
-
-
-
-        <div class="contact-item">
-          <div class="contact-item-icon">✉️</div>
-          <div class="contact-item-text">
-            <strong>E-mail</strong>
-            <a href="mailto:apoiarisdigital@gmail.com">apoiarisdigital@gmail.com</a>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-item-icon">📸</div>
-          <div class="contact-item-text">
-            <strong>Instagram</strong>
-            <a href="https://instagram.com/apoiarisebooks" target="_blank">@apoiarisebooks</a>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-item-icon">📘</div>
-          <div class="contact-item-text">
-            <strong>Facebook</strong>
-            <a href="https://facebook.com/apoiarisebooks" target="_blank">/apoiarisebooks</a>
-          </div>
-        </div>
-
-        <!-- TEMPO DE RESPOSTA -->
-        <div style="background:#f5f5f0; border-radius:12px; padding:1.4rem; margin-top:1.5rem; border-left:4px solid #2ec4b6;">
-          <h4 style="font-size:0.88rem; margin-bottom:0.4rem;">⏰ Tempo médio de resposta</h4>
-          <p style="color:#6b7280; font-size:0.85rem; margin:0;">E-mail / Formulário: até 24h em dias úteis.</p>
-        </div>
-
-        <!-- SUPORTE TÉCNICO -->
-        <div style="background:#f5f5f0; border-radius:12px; padding:1.4rem; margin-top:1rem; border-left:4px solid #c9a96e;">
-          <h4 style="font-size:0.88rem; margin-bottom:0.4rem;">🛡️ Garantia & Reembolso</h4>
-          <p style="color:#6b7280; font-size:0.85rem; margin:0;">Problemas com o produto? Entre em contato dentro de 7 dias e faremos o reembolso integral sem questionamentos.</p>
-        </div>
+    <!-- HERO -->
+    <section class="wrapper style1 fade-up" style="padding:4rem 0 3rem;">
+      <div class="inner">
+        <p style="color:#14B8A6;font-size:0.75rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin-bottom:0.5rem;">Estamos Aqui</p>
+        <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem;">Fale Conosco</h1>
+        <p style="color:rgba(255,255,255,0.60);max-width:560px;font-size:1rem;line-height:1.7;">Dúvidas, sugestões, suporte ou parcerias — responderemos o mais rápido possível.</p>
       </div>
+    </section>
 
-      <!-- FORMULÁRIO -->
-      <div>
-        <div class="contact-form">
-          <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:0.4rem;">Envie sua mensagem</h3>
-          <p style="color:#6b7280; font-size:0.88rem; margin-bottom:1.8rem;">Preencha o formulário abaixo e retornaremos em breve.</p>
+    <!-- FORMULÁRIO + INFO -->
+    <section class="wrapper style2 fade-up">
+      <div class="inner">
+        <div class="split style1">
 
-          <!--
-            INSTRUÇÃO: substitua "SEU_ID_FORMSPREE" pelo seu ID real do Formspree.
-            1. Acesse https://formspree.io e crie uma conta gratuita
-            2. Crie um novo Form e copie o ID (ex: xkgbppnr)
-            3. Substitua abaixo: action="https://formspree.io/f/mzdlgyol"
-          -->
-          <form id="contactForm" action="https://formspree.io/f/mzdlgyol" method="POST">
-
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-              <div class="form-group">
-                <label for="nome">Nome *</label>
-                <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+          <!-- FORMULÁRIO -->
+          <section>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;margin-bottom:0.3rem;">Envie sua mensagem</h3>
+            <p style="color:rgba(255,255,255,0.50);font-size:0.88rem;margin-bottom:1.5rem;">Preencha o formulário e retornaremos em breve.</p>
+            <form method="POST" action="https://formspree.io/f/mzdlgyol" id="contactForm">
+              <div class="fields">
+                <div class="field half">
+                  <label for="nome">Nome *</label>
+                  <input type="text" name="nome" id="nome" placeholder="Seu nome" required />
+                </div>
+                <div class="field half">
+                  <label for="email">E-mail *</label>
+                  <input type="email" name="email" id="email" placeholder="seu@email.com" required />
+                </div>
+                <div class="field">
+                  <label for="telefone">WhatsApp (opcional)</label>
+                  <input type="tel" name="telefone" id="telefone" placeholder="(62) 9 9999-9999" />
+                </div>
+                <div class="field">
+                  <label for="assunto">Assunto *</label>
+                  <select name="assunto" id="assunto" required>
+                    <option value="">Selecione um assunto…</option>
+                    <option value="duvida-produto">Dúvida sobre um produto</option>
+                    <option value="suporte-acesso">Suporte / Acesso ao e-book</option>
+                    <option value="reembolso">Solicitação de reembolso</option>
+                    <option value="parceria">Proposta de parceria</option>
+                    <option value="sugestao">Sugestão de novo título</option>
+                    <option value="outro">Outro assunto</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="mensagem">Mensagem *</label>
+                  <textarea name="mensagem" id="mensagem" rows="5" placeholder="Descreva sua dúvida em detalhes…" required></textarea>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="email">E-mail *</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+              <ul class="actions">
+                <li><button type="submit" class="button primary submit">Enviar Mensagem →</button></li>
+              </ul>
+            </form>
+            <div class="form-success" id="formSuccess">
+              ✅ Mensagem enviada! Retornaremos em breve.
+            </div>
+          </section>
+
+          <!-- INFO -->
+          <section>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;margin-bottom:1.5rem;">Canais de Atendimento</h3>
+
+            <div class="info-card">
+              <div class="info-card-icon">✉️</div>
+              <div>
+                <h4>E-mail</h4>
+                <a href="mailto:apoiarisdigital@gmail.com">apoiarisdigital@gmail.com</a>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="telefone">WhatsApp (opcional)</label>
-              <input type="tel" id="telefone" name="telefone" placeholder="(62) 9 9999-9999" />
+            <div class="info-card">
+              <div class="info-card-icon">⏰</div>
+              <div>
+                <h4>Tempo de resposta</h4>
+                <p>E-mail / Formulário: até 24h em dias úteis</p>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="assunto">Assunto *</label>
-              <select id="assunto" name="assunto" required>
-                <option value="">Selecione um assunto…</option>
-                <option value="duvida-produto">Dúvida sobre um produto</option>
-                <option value="suporte-acesso">Suporte / Acesso ao e-book</option>
-                <option value="reembolso">Solicitação de reembolso</option>
-                <option value="parceria">Proposta de parceria</option>
-                <option value="sugestao">Sugestão de novo título</option>
-                <option value="outro">Outro assunto</option>
-              </select>
+            <div class="info-card">
+              <div class="info-card-icon">🛡️</div>
+              <div>
+                <h4>Garantia & Reembolso</h4>
+                <p>Problemas com o produto? Reembolso integral em até 7 dias sem perguntas.</p>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="mensagem">Mensagem *</label>
-              <textarea id="mensagem" name="mensagem" placeholder="Descreva sua dúvida ou mensagem em detalhes…" required></textarea>
+            <div class="info-card">
+              <div class="info-card-icon">📸</div>
+              <div>
+                <h4>Instagram</h4>
+                <a href="https://instagram.com/apoiarisebooks" target="_blank">@apoiarisebooks</a>
+              </div>
             </div>
 
-            <button type="submit" class="btn-submit">Enviar Mensagem →</button>
-          </form>
+            <div class="info-card">
+              <div class="info-card-icon">📘</div>
+              <div>
+                <h4>Facebook</h4>
+                <a href="https://facebook.com/apoiarisebooks" target="_blank">/apoiarisebooks</a>
+              </div>
+            </div>
+          </section>
 
-          <div id="formSuccess" class="form-success">
-            ✅ Mensagem enviada com sucesso! Retornaremos em breve.
-          </div>
         </div>
-
-
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- FAQ -->
+    <section class="wrapper style3 fade-up">
+      <div class="inner">
+        <p style="color:#14B8A6;font-size:0.75rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin-bottom:0.5rem;">Antes de entrar em contato</p>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;color:#fff;margin-bottom:0.75rem;">Perguntas Frequentes</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:2rem;">As dúvidas mais comuns já estão respondidas aqui.</p>
 
-  <!-- ======= FAQ ======= -->
-  <section style="background:#fff; padding:5rem 2rem;">
-    <div style="max-width:1100px; margin:0 auto;">
-      <p class="section-label">Antes de entrar em contato</p>
-      <h2 class="section-title">Perguntas Frequentes</h2>
-      <p class="section-desc">As dúvidas mais comuns já estão respondidas aqui. Confira!</p>
-
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question">
-            Não recebi meu e-book após a compra. O que faço?
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Verifique sua caixa de spam/lixo eletrônico. O e-mail de entrega às vezes vai para lá. Se não encontrar em até 1h (para pagamento por cartão) ou em até 10 minutos (para Pix), entre em contato pelo formulário acima com o comprovante de pagamento.
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Não recebi meu e-book após a compra. O que faço?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Verifique sua caixa de spam. O e-mail de entrega às vezes vai para lá. Se não encontrar em até 1h (cartão) ou 10 minutos (Pix), entre em contato com o comprovante de pagamento.</div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            Posso usar o e-book no celular?
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Sim! Todos os e-books são em PDF, que funciona perfeitamente em celular, tablet, computador e qualquer leitor de e-book. No Android, use o Google PDF Viewer ou Adobe Acrobat. No iPhone, use o aplicativo Livros ou Adobe Acrobat.
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Posso usar o e-book no celular?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Sim! Todos os e-books são em PDF — funciona perfeitamente em celular, tablet e computador. No Android use o Google PDF Viewer; no iPhone, o app Livros.</div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            Como funciona a garantia de 7 dias?
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Simples: se dentro de 7 dias após a compra você não ficar satisfeito com o conteúdo, basta entrar em contato com seu nome, e-mail de compra e o motivo da insatisfação. Processamos o reembolso integral sem burocracia.
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Como funciona a garantia de 7 dias?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Se dentro de 7 dias você não ficar satisfeito, basta entrar em contato com nome e e-mail de compra. Processamos o reembolso integral sem burocracia.</div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            Quais são as formas de pagamento aceitas?
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Aceitamos Pix (confirmação imediata), cartão de crédito (em até 12x) e boleto bancário (confirmação em 1 a 3 dias úteis). Todos os pagamentos são processados pela plataforma Kiwify, que é segura e regulamentada.
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Quais são as formas de pagamento aceitas?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Aceitamos Pix (confirmação imediata), cartão de crédito (em até 12x) e boleto bancário. Todos os pagamentos são processados pela Kiwify — segura e regulamentada.</div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            Vocês têm programa de afiliados?
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Estamos trabalhando nisso! Se você tiver interesse em divulgar nossos e-books e ganhar comissões, entre em contato pelo formulário selecionando "Proposta de parceria" — vamos avaliar sua proposta com atenção.
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Vocês têm programa de afiliados?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Estamos trabalhando nisso! Se tiver interesse em divulgar nossos e-books e ganhar comissões, entre em contato selecionando "Proposta de parceria" no formulário.</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ======= FOOTER ======= -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logos/logo-horizontal-transparente.png" alt="Apoiaris E-Books" style="filter:brightness(0) invert(1);" />
-        <p>Conhecimento prático a um clique de distância. E-books desenvolvidos com cuidado para quem busca aprender de verdade.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navegação</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="quem-somos.html">Quem Somos</a></li>
-          <li><a href="catalogo.html">Catálogo</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <ul>
-          <li><a href="mailto:apoiarisdigital@gmail.com">apoiarisdigital@gmail.com</a></li>
-          
-          <li><a href="contato.html">Fale Conosco</a></li>
-        </ul>
-        <div class="social-links" style="margin-top:1rem;">
-          <a href="#" class="social-btn" title="Instagram">📸</a>
-          <a href="#" class="social-btn" title="Facebook">📘</a>
-          
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Apoiaris E-Books · Todos os direitos reservados · <span>Uma empresa do Grupo Apoiaris ®</span></p>
+  </div>
+
+  <footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+      <ul class="menu">
+        <li>© 2025 Apoiaris E-Books · Todos os direitos reservados · Grupo Apoiaris ®</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+      </ul>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function toggleFaq(btn) {
+      btn.classList.toggle('open');
+      const answer = btn.nextElementSibling;
+      answer.classList.toggle('open');
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = 'Enviando…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          this.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          btn.textContent = 'Erro — tente novamente';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Erro — tente novamente';
+        btn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>

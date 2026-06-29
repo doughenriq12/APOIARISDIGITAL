@@ -157,10 +157,12 @@
     }
 
     @media (max-width: 640px) {
-      .carousel-slide { height: 380px; }
-      .carousel-content { padding: 2rem 1.5rem; }
-      .carousel-content h2 { font-size: 1.5rem; }
-      .carousel-btn { width: 38px; height: 38px; font-size: 1rem; }
+      .carousel-slide { height: 420px; }
+      .carousel-content { padding: 2.5rem 1rem; padding-left: 3.5rem; padding-right: 3.5rem; }
+      .carousel-content h2 { font-size: 1.4rem; }
+      .carousel-btn { width: 32px; height: 32px; font-size: 0.85rem; top: auto; bottom: 3.5rem; transform: none; }
+      .carousel-btn.prev { left: 0.75rem; }
+      .carousel-btn.next { right: 0.75rem; }
     }
   </style>
   <!-- Meta Pixel -->
@@ -198,7 +200,7 @@
       <li><a href="quem-somos.html">Quem Somos</a></li>
       <li><a href="catalogo.html">Catálogo</a></li>
       <li><a href="contato.html">Contato</a></li>
-      <li><a href="catalogo/transitosemmedo.html" class="nav-cta">Ver E-Books</a></li>
+      <li><a href="catalogo.html" class="nav-cta">Ver E-Books</a></li>
     </ul>
   </nav>
 
@@ -312,7 +314,7 @@
 
   <!-- ======= DESTAQUE E-BOOK ======= -->
   <section style="background: linear-gradient(135deg, #0e1120 0%, #1a1535 100%); padding: 5rem 2rem; border-top:1px solid rgba(124,58,237,0.15); border-bottom:1px solid rgba(124,58,237,0.15);">
-    <div style="max-width:960px; margin:0 auto; display:grid; grid-template-columns:1fr 1.4fr; gap:3rem; align-items:center;">
+    <div style="max-width:960px; margin:0 auto; display:grid; grid-template-columns:1fr 1.4fr; gap:3rem; align-items:center; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
 
       <!-- IMAGEM REALISTA -->
       <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 0 60px rgba(124,58,237,0.25);">
@@ -403,13 +405,13 @@
         <h4>Contato</h4>
         <ul>
           <li><a href="mailto:apoiarisdigital@gmail.com">apoiarisdigital@gmail.com</a></li>
-          <li><a href="https://wa.me/5562999999999" target="_blank">WhatsApp</a></li>
+          
           <li><a href="contato.html">Fale Conosco</a></li>
         </ul>
         <div class="social-links" style="margin-top:1rem;">
           <a href="#" class="social-btn" title="Instagram">📸</a>
           <a href="#" class="social-btn" title="Facebook">📘</a>
-          <a href="#" class="social-btn" title="WhatsApp">💬</a>
+          
         </div>
       </div>
     </div>

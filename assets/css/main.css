@@ -3957,7 +3957,7 @@ h1, h2, h3, h4 {
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.sidebar-logo img { height: 36px; width: auto; filter: brightness(0) invert(1); }
+.sidebar-logo img { height: 52px; width: auto; filter: brightness(0) invert(1); }
 
 /* Intro hero — fundo escuro com gradiente */
 #intro.wrapper {
@@ -4100,3 +4100,13 @@ body { padding-top: 36px; }
   font-size: 0.88rem;
 }
 .garantia-box strong { color: #C5A880; }
+
+/* Hero grid responsivo */
+@media (max-width: 900px) {
+  #intro .inner > div[style*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+  #intro .inner > div[style*="grid"] > div:last-child {
+    display: none !important;
+  }
+}

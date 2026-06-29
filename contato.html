@@ -90,6 +90,8 @@
             <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;margin-bottom:0.3rem;">Envie sua mensagem</h3>
             <p style="color:rgba(255,255,255,0.50);font-size:0.88rem;margin-bottom:1.5rem;">Preencha o formulário e retornaremos em breve.</p>
             <form method="POST" action="https://formspree.io/f/mzdlgyol" id="contactForm">
+              <input type="hidden" name="_next" value="https://apoiarisdigital.com.br/contato.html" />
+              <input type="hidden" name="_subject" value="Nova mensagem — Apoiaris E-Books" />
               <div class="fields">
                 <div class="field half">
                   <label for="nome">Nome *</label>
@@ -255,25 +257,31 @@
 
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const btn = this.querySelector('button[type="submit"]');
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      const successBox = document.getElementById('formSuccess');
       btn.textContent = 'Enviando…';
       btn.disabled = true;
       try {
-        const res = await fetch(this.action, {
+        const data = new FormData(form);
+        const res = await fetch('https://formspree.io/f/mzdlgyol', {
           method: 'POST',
-          body: new FormData(this),
+          body: data,
           headers: { 'Accept': 'application/json' }
         });
-        if (res.ok) {
-          this.style.display = 'none';
-          document.getElementById('formSuccess').style.display = 'block';
+        const json = await res.json();
+        if (res.ok || json.ok) {
+          form.style.display = 'none';
+          successBox.style.display = 'block';
+          successBox.scrollIntoView({ behavior: 'smooth' });
         } else {
           btn.textContent = 'Erro — tente novamente';
           btn.disabled = false;
         }
-      } catch {
-        btn.textContent = 'Erro — tente novamente';
-        btn.disabled = false;
+      } catch(err) {
+        // Fallback: se o fetch falhar por CORS, tenta submit normal
+        form.removeEventListener('submit', arguments.callee);
+        form.submit();
       }
     });
   </script>

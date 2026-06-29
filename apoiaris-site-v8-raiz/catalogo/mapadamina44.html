@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="O Mapa da Mina na 44 — Guia estratégico para revendedores e sacoleiros lucrarem na Região da 44, Goiânia."/>
+  <title>O Mapa da Mina na 44 — Guia Estratégico de Compras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #111318;
+      --dark2:   #1a1d24;
+      --green:   #22c55e;
+      --green2:  #16a34a;
+      --red:     #ef4444;
+      --orange:  #f97316;
+      --gold:    #eab308;
+      --white:   #ffffff;
+      --gray:    #94a3b8;
+      --light:   #1e2330;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── BARRA TOPO ── */
+    .top-bar {
+      background: var(--red);
+      text-align: center;
+      padding: 0.55rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.04em;
+      animation: blink-bar 2s ease-in-out infinite;
+    }
+
+    @keyframes blink-bar {
+      0%,100% { background: var(--red); }
+      50%      { background: #c41e1e; }
+    }
+
+    /* ── MINI NAV ── */
+    .mini-nav {
+      background: rgba(10,10,10,0.97);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+
+    .mini-nav img { height: 36px; filter: brightness(0) invert(1); }
+    .mini-nav a.back {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .mini-nav a.back:hover { color: var(--green); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(180deg, #0a0a0a 0%, #111318 100%);
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      color: var(--white);
+    }
+
+    .hero h1 .green  { color: var(--green); }
+    .hero h1 .yellow { color: var(--gold); }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-sub strong { color: var(--white); }
+
+    /* Imagem hero */
+    .hero-img-wrap {
+      position: relative;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(34,197,94,0.18);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── CRONÔMETRO ── */
+    .countdown-wrap {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.4rem;
+      text-align: center;
+      max-width: 420px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .countdown-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .countdown-digits {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .countdown-num {
+      font-size: 2.8rem;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--white);
+      min-width: 2.4ch;
+    }
+
+    .countdown-sep { font-size: 2.2rem; font-weight: 900; color: var(--green); margin-bottom: 0.6rem; }
+    .countdown-sub { font-size: 0.65rem; font-weight: 700; font-family: 'Montserrat', sans-serif; letter-spacing: 0.1em; color: var(--gray); text-transform: uppercase; margin-top: 0.2rem; }
+
+    /* ── PREÇO ── */
+    .price-box {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      max-width: 420px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .price-de {
+      font-size: 1rem;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-bottom: 0.2rem;
+    }
+
+    .price-por { font-size: 0.88rem; color: var(--gray); margin-bottom: 0.3rem; }
+
+    .price-valor {
+      font-size: 3.6rem;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .price-info { font-size: 0.82rem; color: var(--gray); }
+
+    /* ── BTN CTA ── */
+    .btn-cta {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto 0.75rem;
+      background: var(--green);
+      color: var(--black);
+      padding: 1.1rem 2rem;
+      border-radius: 10px;
+      font-weight: 900;
+      font-size: 1.1rem;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 0 28px rgba(34,197,94,0.35);
+      animation: glow-green 2s ease-in-out infinite;
+    }
+
+    @keyframes glow-green {
+      0%,100% { box-shadow: 0 0 28px rgba(34,197,94,0.35); }
+      50%      { box-shadow: 0 0 50px rgba(34,197,94,0.60); }
+    }
+
+    .btn-cta:hover { background: #16a34a; transform: translateY(-2px); }
+
+    .garantia-txt {
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-align: center;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .garantia-txt span { color: var(--green); font-weight: 600; }
+
+    /* ── AVISO URGÊNCIA ── */
+    .urgencia-box {
+      background: rgba(234,179,8,0.10);
+      border: 1px solid rgba(234,179,8,0.30);
+      border-radius: 10px;
+      padding: 1rem 1.3rem;
+      font-size: 0.9rem;
+      max-width: 420px;
+      margin: 1rem auto 0;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ── STATS ── */
+    .stats-strip {
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 2rem 1.5rem;
+    }
+
+    .stats-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--green);
+    }
+
+    .stat-lbl { font-size: 0.78rem; color: var(--gray); margin-top: 0.2rem; }
+
+    /* ── SEÇÕES ── */
+    .section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .section-title span { color: var(--green); }
+    .section-title em   { color: var(--gold); font-style: normal; }
+
+    /* ── DOR/PROBLEMA ── */
+    .problem-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .problem-item {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .problem-x {
+      color: var(--red);
+      font-size: 1.4rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .problem-text strong { color: var(--white); }
+    .problem-text { color: rgba(255,255,255,0.72); font-size: 0.95rem; }
+
+    /* ── CHECKLIST BENEFÍCIOS ── */
+    .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 0.97rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .benefit-check {
+      color: var(--green);
+      font-size: 1.1rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── CAPÍTULOS ── */
+    .chapters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .chapter-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 1.3rem;
+      border-left: 4px solid var(--orange);
+      transition: border-color 0.2s;
+    }
+
+    .chapter-card:hover { border-left-color: var(--green); }
+
+    .chapter-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--orange);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .chapter-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 0.4rem;
+    }
+
+    .chapter-card p { font-size: 0.83rem; color: var(--gray); }
+
+    /* ── FORNECEDORES BADGE ── */
+    .fornec-box {
+      background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(34,197,94,0.04));
+      border: 1px solid rgba(34,197,94,0.30);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .fornec-box .lock { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+    .fornec-box h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--green);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .fornec-box p { color: rgba(255,255,255,0.70); font-size: 0.9rem; max-width: 440px; margin: 0 auto; }
+
+    .fornec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+    }
+
+    .fornec-tag {
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.25);
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+    }
+
+    /* ── GARANTIA ── */
+    .garantia-full {
+      background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(34,197,94,0.02));
+      border: 1px solid rgba(34,197,94,0.20);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .garantia-full h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 0.75rem;
+    }
+
+    .garantia-full p { color: rgba(255,255,255,0.70); font-size: 0.93rem; max-width: 480px; margin: 0 auto 0.6rem; }
+    .garantia-full .hl { color: var(--green); font-weight: 700; }
+
+    /* ── ÚLTIMO AVISO ── */
+    .ultimo-aviso {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .ultimo-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+
+    .ultimo-aviso h2 {
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .ultimo-aviso p { color: rgba(255,255,255,0.70); font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .ultimo-aviso strong { color: var(--white); }
+
+    .timer-inline {
+      font-size: 1.2rem;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--green);
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    /* ── FOOTER ── */
+    .lp-footer {
+      background: #060608;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .lp-footer img { height: 34px; margin: 0 auto 1rem; filter: brightness(0) invert(1); }
+    .lp-footer p { color: rgba(255,255,255,0.28); font-size: 0.78rem; margin-bottom: 0.4rem; }
+    .lp-footer a { color: rgba(255,255,255,0.40); transition: color 0.2s; }
+    .lp-footer a:hover { color: var(--green); }
+    .lp-footer .grupo { color: #C5A880; font-weight: 600; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; }
+
+    /* ── STICKY CTA MOBILE ── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--green);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      z-index: 300;
+      box-shadow: 0 -4px 24px rgba(34,197,94,0.40);
+      display: none;
+    }
+
+    .sticky-cta a {
+      color: var(--black);
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      .sticky-cta { display: block; }
+      body { padding-bottom: 70px; }
+      .stats-inner { grid-template-columns: repeat(3,1fr); gap: 0.5rem; }
+      .stat-val { font-size: 1.4rem; }
+    }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,"script",
+  "https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init","1538312574315932");
+  fbq("track","PageView");
+  fbq("track","ViewContent",{content_name:"Mapa da Mina na 44",content_ids:["mapa-mina-44"],content_type:"product"});
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1538312574315932&ev=PageView&noscript=1"/></noscript>
+  <!-- Fim Meta Pixel -->
+</head>
+<body>
+
+  <!-- BARRA TOPO -->
+  <div class="top-bar">
+    ⚠️ ATENÇÃO: Esta página sairá do ar assim que o limite de downloads for atingido para proteger nossos fornecedores!
+  </div>
+
+  <!-- MINI NAV -->
+  <nav class="mini-nav">
+    <a href="../index.html">
+      <img src="../assets/logos/logo-horizontal-transparente.png" alt="Apoiaris E-Books" />
+    </a>
+    <a href="../catalogo.html" class="back">← Ver catálogo</a>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <section style="background:#0a0a0a; padding-top:0;">
+    <div class="hero">
+      <div class="hero-badge">🔥 Para Revendedores e Sacoleiros · Goiânia</div>
+
+      <h1>
+        Pare de Perder Tempo e Dinheiro na 44: <span class="green">Descubra o "Mapa da Mina"</span> e a Lista de Fornecedores Secretos que <em>Ninguém Revela!</em>
+      </h1>
+
+      <p class="hero-sub">
+        Economize até <strong>3 dias de caminhada</strong>, evite golpes e maximize seus lucros em Goiânia com o Manual de Eficiência definitivo para Revendedores e Sacoleiros.
+      </p>
+
+      <!-- Capa do ebook -->
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80&auto=format&fit=crop"
+             alt="O Mapa da Mina na 44"
+             style="filter:brightness(0.7);" />
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, #0a0a0a 0%, transparent 50%);"></div>
+        <div style="position:absolute; bottom:1.2rem; left:1.2rem; right:1.2rem;">
+          <p style="font-size:1.6rem; font-weight:900; font-family:'Montserrat',sans-serif; color:#eab308; text-shadow:0 2px 8px rgba(0,0,0,0.9); line-height:1.1;">O MAPA DA MINA NA 44</p>
+          <p style="font-size:0.9rem; font-weight:700; color:#fff; font-family:'Montserrat',sans-serif; margin-top:0.3rem;">GOIÂNIA</p>
+        </div>
+      </div>
+
+      <!-- CRONÔMETRO -->
+      <div class="countdown-wrap">
+        <div class="countdown-label">⏱ Oferta expira em</div>
+        <div class="countdown-digits">
+          <div style="text-align:center;">
+            <div class="countdown-num" id="heroMin">14</div>
+            <div class="countdown-sub">min</div>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div style="text-align:center;">
+            <div class="countdown-num" id="heroSec">59</div>
+            <div class="countdown-sub">seg</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREÇO -->
+      <div class="price-box">
+        <p class="price-de">De R$ 49,90</p>
+        <p class="price-por">O acesso completo sai por:</p>
+        <p class="price-valor">R$ 27,90</p>
+        <p class="price-info">pagamento único · acesso imediato</p>
+      </div>
+
+      <a href="https://pay.kiwify.com.br/58o0ood" onclick="fbq('track','InitiateCheckout',{content_name:'Mapa da Mina na 44',value:27.90,currency:'BRL'})" target="_blank" class="btn-cta">
+        🔓 Quero Acessar o Mapa da Mina Agora →
+      </a>
+
+      <p class="garantia-txt">🔒 Garantia de 7 dias. Se não gostar, <span>devolvemos 100%</span> do seu dinheiro.</p>
+
+      <div class="urgencia-box">
+        ⚠️ <strong>ATENÇÃO:</strong> Últimas unidades disponíveis pelo preço promocional! Garanta agora antes que a página saia do ar.
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ======= STATS ======= -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-val">15.000+</div>
+        <div class="stat-lbl">Pontos de venda mapeados</div>
+      </div>
+      <div>
+        <div class="stat-val">2º</div>
+        <div class="stat-lbl">Polo atacadista do Brasil</div>
+      </div>
+      <div>
+        <div class="stat-val">5 Cap.</div>
+        <div class="stat-lbl">Conteúdo prático</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ======= DOR ======= -->
+  <section class="section">
+    <h2 class="section-title">Você já sentiu que está<br><span>deixando dinheiro na mesa?</span></h2>
+
+    <div class="problem-list">
+      <div class="problem-item">
+        <span class="problem-x">✕</span>
+        <div class="problem-text">
+          <strong>Cansaço Físico:</strong> Chega na 44 e fica rodando sem saber onde estão as melhores peças?
+        </div>
+      </div>
+      <div class="problem-item">
+        <span class="problem-x">✕</span>
+        <div class="problem-text">
+          <strong>Insegurança:</strong> Tem medo de cair em golpes de "coletes amarelos" ou falsos guias?
+        </div>
+      </div>
+      <div class="problem-item">
+        <span class="problem-x">✕</span>
+        <div class="problem-text">
+          <strong>Prejuízo Oculto:</strong> Gasta uma fortuna com Uber, transportes desnecessários e hospedagem mal localizada?
+        </div>
+      </div>
+      <div class="problem-item">
+        <span class="problem-x">✕</span>
+        <div class="problem-text">
+          <strong>Negociação Fraca:</strong> Paga o preço do turista em vez do preço do parceiro?
+        </div>
+      </div>
+      <div class="problem-item">
+        <span class="problem-x">✕</span>
+        <div class="problem-text">
+          <strong>Mercadoria Errada:</strong> Volta com estoque que não vende porque não sabia o que estava comprando?
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ======= SOLUÇÃO ======= -->
+  <section class="section">
+    <h2 class="section-title">Dentro do guia você vai <span>encontrar:</span></h2>
+
+    <ul class="benefit-list">
+      <li class="benefit-item"><span class="benefit-check">✓</span> O mapa completo da Região da 44: Shoppings, Galerias e Feira Hippie — cada área com sua estratégia de preço</li>
+      <li class="benefit-item"><span class="benefit-check">✓</span> Protocolo Anti-Golpe: como identificar e evitar os golpes mais comuns que destroem o lucro de novatos</li>
+      <li class="benefit-item"><span class="benefit-check">✓</span> Guia de hospedagem estratégica: hotéis certos que economizam até 2h por dia de deslocamento</li>
+      <li class="benefit-item"><span class="benefit-check">✓</span> Logística de Alta Performance: o ciclo Comprar → Descarregar → Descansar → Voltar que dobra sua produtividade</li>
+      <li class="benefit-item"><span class="benefit-check">✓</span> Scripts prontos de negociação: as frases exatas para conseguir o preço de parceiro em vez de turista</li>
+      <li class="benefit-item"><span class="benefit-check">✓</span> Checklist completo: o que fazer antes, durante e depois de cada viagem à 44</li>
+      <li class="benefit-item"><span class="benefit-check">✓</span> Os 6 Gatilhos de Desconto que os profissionais usam e ninguém conta</li>
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ======= CAPÍTULOS ======= -->
+  <section class="section">
+    <h2 class="section-title">5 Capítulos de <em>Estratégia Pura</em></h2>
+
+    <div class="chapters-grid">
+      <div class="chapter-card">
+        <div class="chapter-num">Cap. 1</div>
+        <h4>A Geografia do Lucro</h4>
+        <p>Cada metro da 44 tem um propósito — saiba qual é o seu.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Cap. 2</div>
+        <h4>Protocolo Anti-Golpe</h4>
+        <p>A 44 recompensa quem sabe o que está fazendo.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Cap. 3</div>
+        <h4>Hospedagem & Alimentação</h4>
+        <p>Seu descanso é parte da sua estratégia.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Cap. 4</div>
+        <h4>Logística de Alta Performance</h4>
+        <p>Quem organiza bem compra mais — e paga menos.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Cap. 5</div>
+        <h4>Negociação Profissional</h4>
+        <p>Preço de tabela é ponto de partida — não de chegada.</p>
+      </div>
+      <div class="chapter-card" style="border-left-color: var(--gold);">
+        <div class="chapter-num" style="color:var(--gold);">Bônus</div>
+        <h4>Checklist do Revendedor</h4>
+        <p>Use antes, durante e depois de cada viagem.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ======= FORNECEDORES SECRETOS ======= -->
+  <section class="section">
+    <div class="fornec-box">
+      <div class="lock">🔐</div>
+      <h3>Inclui a Cobiçada Lista de Fornecedores Secretos</h3>
+      <p>Contatos verificados, organizados por categoria, com endereço e dicas de abordagem. Planilha interativa com os melhores fornecedores da Região da 44.</p>
+      <div class="fornec-tags">
+        <span class="fornec-tag">👗 Moda Feminina</span>
+        <span class="fornec-tag">👔 Moda Masculina</span>
+        <span class="fornec-tag">👶 Moda Infantil</span>
+        <span class="fornec-tag">👟 Calçados</span>
+        <span class="fornec-tag">💍 Acessórios</span>
+        <span class="fornec-tag">🩱 Moda Praia</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ======= OFERTA CENTRAL ======= -->
+  <section class="section" style="text-align:center;">
+    <h2 class="section-title">O acesso completo sai por:</h2>
+
+    <!-- Tabela de valor -->
+    <div style="background:var(--dark2); border:1px solid rgba(255,255,255,0.07); border-radius:12px; overflow:hidden; max-width:420px; margin:0 auto 1.5rem;">
+      <div style="display:flex; justify-content:space-between; padding:0.9rem 1.3rem; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.9rem;">
+        <span>Guia completo (5 capítulos)</span>
+        <span style="color:var(--gray); text-decoration:line-through;">R$ 49,90</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.9rem 1.3rem; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.9rem;">
+        <span>Lista de Fornecedores Secretos</span>
+        <span style="color:var(--gray); text-decoration:line-through;">R$ 39,90</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.9rem 1.3rem; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.9rem;">
+        <span>Checklist do Revendedor</span>
+        <span style="color:var(--gray); text-decoration:line-through;">R$ 19,90</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.9rem 1.3rem; font-weight:800; font-family:'Montserrat',sans-serif;">
+        <span>Valor total</span>
+        <span style="color:var(--gray); text-decoration:line-through;">R$ 109,70</span>
+      </div>
+    </div>
+
+    <div class="price-box" style="margin-bottom:1.2rem;">
+      <p style="font-size:0.8rem; font-weight:700; font-family:'Montserrat',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray); margin-bottom:0.5rem;">Você paga apenas</p>
+      <p class="price-valor">R$ 27,90</p>
+      <p class="price-info">pagamento único · acesso imediato</p>
+    </div>
+
+    <a href="https://pay.kiwify.com.br/58o0ood" onclick="fbq('track','InitiateCheckout',{content_name:'Mapa da Mina na 44',value:27.90,currency:'BRL'})" target="_blank" class="btn-cta">
+      🔓 Quero Acessar o Mapa da Mina Agora →
+    </a>
+    <p class="garantia-txt" style="margin-top:0.75rem;">🔒 Garantia de 7 dias. Se não gostar, <span>devolvemos 100%</span> do seu dinheiro.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ======= GARANTIA ======= -->
+  <section class="section">
+    <div class="garantia-full">
+      <div style="font-size:3rem; margin-bottom:1rem;">🛡️</div>
+      <h3>Garantia Incondicional de 7 Dias</h3>
+      <p>Se por qualquer motivo você não ficar satisfeito, basta enviar um e-mail em até <strong style="color:#fff;">7 dias após a compra</strong> e devolvemos 100% do seu dinheiro, sem perguntas e sem burocracia.</p>
+      <p class="hl">Você não tem nada a perder. Só a ganhar.</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ======= ÚLTIMO AVISO ======= -->
+  <section style="background:var(--dark2); padding:1rem 0;">
+    <div class="ultimo-aviso">
+      <div class="ultimo-label">⚠️ Último Aviso</div>
+      <h2>Não deixe para depois o que pode mudar seus resultados hoje</h2>
+      <p>Por apenas <strong>R$ 27,90</strong>, você acessa o guia completo + lista de fornecedores secretos imediatamente após a compra.</p>
+      <p style="margin-bottom:1.2rem;">Oferta expira em:</p>
+      <span class="timer-inline" id="finalTimer">14:59</span>
+
+      <a href="https://pay.kiwify.com.br/58o0ood" onclick="fbq('track','InitiateCheckout',{content_name:'Mapa da Mina na 44',value:27.90,currency:'BRL'})" target="_blank" class="btn-cta">
+        🔓 Quero Acessar o Mapa da Mina Agora →
+      </a>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="lp-footer">
+    <img src="../assets/logos/logo-horizontal-transparente.png" alt="Apoiaris" />
+    <p>
+      <a href="../contato.html">Contato</a> ·
+      <a href="../catalogo.html">Catálogo</a> ·
+      <a href="../catalogo/transitosemmedo.html">101 Dicas de Trânsito</a>
+    </p>
+    <p style="margin-top:0.4rem;">© 2025 Apoiaris E-Books · Todos os direitos reservados</p>
+    <p class="grupo" style="margin-top:0.4rem;">Uma empresa do Grupo Apoiaris ®</p>
+  </footer>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta">
+    <a href="https://pay.kiwify.com.br/58o0ood" onclick="fbq('track','InitiateCheckout',{content_name:'Mapa da Mina na 44',value:27.90,currency:'BRL'})" target="_blank">🔓 Quero Acessar o Mapa da Mina Agora →</a>
+  </div>
+
+  <script>
+    // ── CRONÔMETRO 15 minutos ──
+    const DURATION = 15 * 60;
+
+    function getOrInitTimer() {
+      const key = 'apoiaris_mapa44_end';
+      let end = parseInt(sessionStorage.getItem(key) || '0');
+      if (!end || end < Date.now()) {
+        end = Date.now() + DURATION * 1000;
+        sessionStorage.setItem(key, end);
+      }
+      return end;
+    }
+
+    function updateTimers() {
+      const remaining = Math.max(0, Math.floor((getOrInitTimer() - Date.now()) / 1000));
+      const m = String(Math.floor(remaining / 60)).padStart(2,'0');
+      const s = String(remaining % 60).padStart(2,'0');
+
+      const heroMin = document.getElementById('heroMin');
+      const heroSec = document.getElementById('heroSec');
+      const finalT  = document.getElementById('finalTimer');
+
+      if (heroMin) heroMin.textContent = m;
+      if (heroSec) heroSec.textContent = s;
+      if (finalT)  finalT.textContent  = `${m}:${s}`;
+
+      if (remaining <= 0) sessionStorage.removeItem('apoiaris_mapa44_end');
+    }
+
+    updateTimers();
+    setInterval(updateTimers, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Guia Completo do Novo Imposto de Renda 2026 — PDF gratuito com tudo sobre a reforma: isenção até R$ 5.000, faixa de transição, tabelas e exemplos práticos."/>
+  <title>Guia Completo do Novo IR 2026 — Grátis | Apoiaris E-Books</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1538312574315932');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'Guia IR 2026 Gratuito', value: 0, currency: 'BRL'});
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1E2640;
+      --teal: #14B8A6;
+      --gold: #C5A880;
+      --purple: #7C3AED;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: linear-gradient(90deg, #0d7a70, var(--teal), #0d7a70);
+      text-align: center;
+      padding: 0.55rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+    }
+    .top-bar span { color: var(--navy); font-weight: 900; }
+
+    /* ── NAV ── */
+    .lp-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .lp-nav img { height: 36px; }
+    .lp-nav a {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .lp-nav a:hover { color: var(--teal); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #1E2640 0%, #162235 60%, #1E2640 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(20,184,166,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(197,168,128,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner { max-width: 680px; margin: 0 auto; position: relative; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(20,184,166,0.12);
+      border: 1px solid rgba(20,184,166,0.35);
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.14em;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.4rem;
+    }
+
+    .preco-tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .preco-de {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: line-through;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+    .preco-seta { color: rgba(255,255,255,0.3); font-size: 1rem; }
+    .preco-por {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--teal);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1;
+    }
+    .preco-gratis {
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 900;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      color: #fff;
+    }
+    .hero h1 .accent { color: var(--teal); }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .btn-download {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--navy);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(20,184,166,0.35);
+    }
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(20,184,166,0.50);
+      color: var(--navy);
+    }
+    .btn-download-note {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── CONTEÚDO ── */
+    .section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ── O QUE VOCÊ VAI APRENDER ── */
+    .topicos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    @media (max-width: 540px) { .topicos-grid { grid-template-columns: 1fr; } }
+
+    .topico-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+    }
+    .topico-check {
+      width: 20px; height: 20px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem;
+      color: var(--navy);
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .topico-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.4;
+    }
+
+    /* ── DESTAQUE NUMÉRICO ── */
+    .numeros-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .numero-card {
+      flex: 1;
+      min-width: 120px;
+      background: rgba(20,184,166,0.08);
+      border: 1px solid rgba(20,184,166,0.18);
+      border-radius: 12px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+    }
+    .numero-val {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: var(--teal);
+      display: block;
+    }
+    .numero-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.3rem;
+    }
+
+    /* ── AVISO ── */
+    .aviso-box {
+      background: rgba(197,168,128,0.08);
+      border: 1px solid rgba(197,168,128,0.22);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+    .aviso-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .aviso-text { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .aviso-text strong { color: var(--gold); }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: linear-gradient(135deg, rgba(20,184,166,0.14) 0%, rgba(197,168,128,0.10) 100%);
+      border: 1.5px solid rgba(20,184,166,0.28);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .cta-final h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .cta-final p {
+      color: rgba(255,255,255,0.60);
+      font-size: 0.95rem;
+      margin-bottom: 1.8rem;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── OUTROS PRODUTOS ── */
+    .outros-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 540px) { .outros-grid { grid-template-columns: 1fr; } }
+
+    .outro-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px;
+      padding: 1.4rem;
+      text-decoration: none;
+      color: #fff;
+      transition: border-color 0.2s, transform 0.2s;
+      display: block;
+    }
+    .outro-card:hover {
+      border-color: rgba(124,58,237,0.45);
+      transform: translateY(-3px);
+      color: #fff;
+    }
+    .outro-cat {
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .outro-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .outro-preco {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    .lp-footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .lp-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.25); line-height: 1.7; }
+    .lp-footer a { color: var(--teal); text-decoration: none; }
+
+    /* ── DIVISOR ── */
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 0 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    📄 <span>PDF GRATUITO</span> — Guia Completo do Novo Imposto de Renda 2026 · Baixe agora
+  </div>
+
+  <!-- NAV -->
+  <nav class="lp-nav">
+    <a href="../index.html">
+      <img src="../assets/logos/logo-horizontal-transparente.png" alt="Apoiaris E-Books">
+    </a>
+    <a href="../catalogo.html">← Ver catálogo</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-badge">📄 PDF GRATUITO · 17 PÁGINAS</div>
+
+      <div class="preco-tag">
+        <span class="preco-de">R$ 39,90</span>
+        <span class="preco-seta">→</span>
+        <span class="preco-por">R$ 0,00</span>
+        <span class="preco-gratis">GRÁTIS</span>
+      </div>
+
+      <h1>
+        Guia Completo do<br>
+        <span class="accent">Novo Imposto de Renda 2026</span>
+      </h1>
+
+      <p class="hero-sub">
+        Entenda de uma vez por todas o que mudou com a Lei nº 15.270/2025 — isenção até R$ 5.000, faixa de transição, tabelas oficiais e exemplos práticos com números reais.
+      </p>
+
+      <a href="../assets/ebooks/guia-novo-ir-2026.pdf"
+         download="Guia-Novo-IR-2026-Apoiaris.pdf"
+         class="btn-download"
+         onclick="fbq('track','Lead',{content_name:'Guia IR 2026',value:0,currency:'BRL'})">
+        ⬇ Baixar PDF Gratuito
+      </a>
+      <span class="btn-download-note">Download imediato · Sem cadastro · PDF completo</span>
+
+    </div>
+  </section>
+
+  <!-- O QUE VOCÊ VAI APRENDER -->
+  <div class="section">
+    <h2 class="section-title">📚 O que você vai aprender</h2>
+    <div class="topicos-grid">
+      <div class="topico-item">
+        <div class="topico-check">✓</div>
+        <div class="topico-text">O que mudou com a Lei nº 15.270/2025 e por que 2026 é diferente</div>
+      </div>
+      <div class="topico-item">
+        <div class="topico-check">✓</div>
+        <div class="topico-text">Quem fica isento: CLT, servidores, aposentados e pensionistas</div>
+      </div>
+      <div class="topico-item">
+        <div class="topico-check">✓</div>
+        <div class="topico-text">A faixa de transição de R$ 5.000 a R$ 7.350 explicada com exemplos</div>
+      </div>
+      <div class="topico-item">
+        <div class="topico-check">✓</div>
+        <div class="topico-text">A fórmula oficial do redutor mensal da Receita Federal</div>
+      </div>
+      <div class="topico-item">
+        <div class="topico-check">✓</div>
+        <div class="topico-text">Simplificado ou deduções legais? Como decidir o que compensa mais</div>
+      </div>
+      <div class="topico-item">
+        <div class="topico-check">✓</div>
+        <div class="topico-text">Tabelas mensais e anuais completas de 2026 para consulta rápida</div>
+      </div>
+      <div class="topico-item">
+        <div class="topico-check">✓</div>
+        <div class="topico-text">Diferença entre cálculo mensal (folha) e cálculo anual (declaração)</div>
+      </div>
+      <div class="topico-item">
+        <div class="topico-check">✓</div>
+        <div class="topico-text">IRPFM e tributação de dividendos — quem é afetado de verdade</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- NÚMEROS -->
+  <div class="section">
+    <h2 class="section-title">📊 Os números da reforma</h2>
+    <div class="numeros-row">
+      <div class="numero-card">
+        <span class="numero-val">R$ 5.000</span>
+        <div class="numero-label">Limite de isenção mensal</div>
+      </div>
+      <div class="numero-card">
+        <span class="numero-val">R$ 7.350</span>
+        <div class="numero-label">Teto da faixa de redução</div>
+      </div>
+      <div class="numero-card">
+        <span class="numero-val">~16 mi</span>
+        <div class="numero-label">Brasileiros beneficiados</div>
+      </div>
+      <div class="numero-card">
+        <span class="numero-val">Jan/2026</span>
+        <div class="numero-label">Início da vigência</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AVISO -->
+  <div class="section">
+    <div class="aviso-box">
+      <div class="aviso-icon">⚠️</div>
+      <div class="aviso-text">
+        <strong>Baseado 100% em fontes oficiais.</strong> Todo o conteúdo deste guia foi elaborado a partir da Lei nº 15.270/2025, das tabelas oficiais da Receita Federal e dos exemplos práticos publicados pelo próprio governo. Sem interpretações de terceiros, sem achismos.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA FINAL -->
+  <div class="section">
+    <div class="cta-final">
+      <h2>Pronto para entender o seu IR?</h2>
+      <p>17 páginas, linguagem simples, exemplos com números reais. Download imediato, sem cadastro, sem complicação.</p>
+      <a href="../assets/ebooks/guia-novo-ir-2026.pdf"
+         download="Guia-Novo-IR-2026-Apoiaris.pdf"
+         class="btn-download"
+         onclick="fbq('track','Lead',{content_name:'Guia IR 2026 CTA Final',value:0,currency:'BRL'})">
+        ⬇ Baixar PDF Gratuito
+      </a>
+      <span class="btn-download-note">De R$ 39,90 · Por R$ 0,00 · Grátis para sempre</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- OUTROS PRODUTOS -->
+  <div class="section">
+    <h2 class="section-title">📦 Outros guias Apoiaris</h2>
+    <div class="outros-grid">
+      <a href="transitosemmedo.html"
+         class="outro-card"
+         onclick="fbq('track','ViewContent',{content_name:'101 Dicas Transito',value:24.90,currency:'BRL'})">
+        <div class="outro-cat">🚗 TRÂNSITO</div>
+        <div class="outro-title">101 Dicas de Sobrevivência no Trânsito</div>
+        <div class="outro-preco">R$ 24,90</div>
+      </a>
+      <a href="mapadamina44.html"
+         class="outro-card"
+         onclick="fbq('track','ViewContent',{content_name:'Mapa Mina 44',value:27.90,currency:'BRL'})">
+        <div class="outro-cat">🛍️ COMPRAS</div>
+        <div class="outro-title">O Mapa da Mina na 44</div>
+        <div class="outro-preco">R$ 27,90</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="lp-footer">
+    <p>
+      <a href="../index.html">apoiarisdigital.com.br</a> · Uma empresa do Grupo Apoiaris ®<br>
+      Este guia tem caráter educativo e não substitui a orientação de um contador.<br>
+      Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>
+    </p>
+  </footer>
+
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1538312574315932&ev=PageView&noscript=1"/></noscript>
+
+</body>
+</html>

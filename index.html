@@ -28,11 +28,16 @@
 </head>
 <body class="is-preload">
 
-  <!-- Faixa de oferta -->
-  <div class="oferta-bar">
-    ⚡ <strong>OFERTA ESPECIAL</strong> · E-book de Trânsito por apenas R$ 24,90 ·
-    <a href="catalogo/transitosemmedo.html">Garantir agora →</a>
+  <!-- Faixa de oferta — PDF Grátis piscando -->
+  <div class="oferta-bar" id="oferta-bar" style="background:linear-gradient(90deg,#0d7a70,#14B8A6,#0d7a70); background-size:200% auto; animation: ofertaSlide 3s linear infinite, ofertaPulse 1.2s ease-in-out infinite alternate; cursor:pointer;" onclick="window.location='catalogo/guia-ir-2026.html'">
+    🎁 <strong style="color:#1E2640;">PDF GRÁTIS</strong> <span style="color:#1E2640; opacity:0.7; text-decoration:line-through; font-size:0.78rem;">R$ 39,90</span> <strong style="color:#1E2640;">→ R$ 0,00</strong> · <span style="color:#1E2640; font-weight:700;">Guia Completo do Novo IR 2026</span> · <strong style="color:#1E2640; text-decoration:underline;">Baixar agora →</strong>
   </div>
+  <style>
+    @keyframes ofertaSlide { 0%{background-position:0% center} 100%{background-position:200% center} }
+    @keyframes ofertaPulse { from{box-shadow:0 0 0 0 rgba(20,184,166,0.6)} to{box-shadow:0 0 18px 4px rgba(20,184,166,0.9)} }
+    .oferta-bar { color: #1E2640 !important; }
+    .oferta-bar a { color: #1E2640 !important; }
+  </style>
 
   <!-- Sidebar -->
   <section id="sidebar">
@@ -54,124 +59,138 @@
   <!-- Wrapper -->
   <div id="wrapper">
 
-    <!-- INTRO / HERO -->
-    <section id="intro" class="wrapper style1 fullscreen fade-up">
-      <div class="inner" style="width:100%;">
-        <div style="display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:center;">
+    <!-- INTRO / HERO — CARROSSEL FULLSCREEN -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up" style="padding:0; overflow:hidden;">
 
-          <!-- TEXTO ESQUERDA -->
-          <div>
-            <p style="color:#14B8A6; font-size:0.75rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; font-family:'Montserrat',sans-serif; margin-bottom:1rem;">📚 Apoiaris E-Books</p>
-            <h1>
-              Conhecimento que<br>
-              <span class="teal">Transforma</span><br>
-              <span class="roxo">Vidas.</span>
-            </h1>
+      <style>
+        #hero-carousel { position:relative; width:100%; height:100vh; min-height:580px; }
+        .hero-slide {
+          position:absolute; inset:0;
+          display:flex; align-items:center; justify-content:center;
+          opacity:0; transition:opacity 0.7s ease; pointer-events:none;
+          padding:3rem 4rem;
+        }
+        .hero-slide.active { opacity:1; pointer-events:auto; }
+        .hero-slide-inner { max-width:800px; width:100%; }
+        .slide-brand h1 { font-family:'Montserrat',sans-serif; font-size:clamp(2.4rem,6vw,4.2rem); font-weight:900; line-height:1.08; margin-bottom:1.2rem; }
+        .slide-brand h1 .teal { color:#14B8A6; }
+        .slide-brand h1 .roxo { color:#7C3AED; }
+        .slide-brand p { font-size:clamp(1rem,2vw,1.15rem); color:rgba(255,255,255,0.65); max-width:520px; line-height:1.7; margin-bottom:2rem; }
+        .slide-brand .brand-logo { width:180px; margin-bottom:1.8rem; filter:brightness(0) invert(1); }
+        .slide-brand .cta-row { display:flex; gap:1rem; flex-wrap:wrap; }
+        .btn-ph { display:inline-block; font-family:'Montserrat',sans-serif; font-weight:900; font-size:0.95rem; padding:0.85rem 2rem; border-radius:10px; text-decoration:none; transition:transform 0.2s,box-shadow 0.2s; }
+        .btn-ph-primary { background:#14B8A6; color:#1E2640; box-shadow:0 4px 20px rgba(20,184,166,0.35); }
+        .btn-ph-primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(20,184,166,0.5); color:#1E2640; }
+        .btn-ph-outline { border:1.5px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.75); }
+        .btn-ph-outline:hover { border-color:rgba(255,255,255,0.6); color:#fff; }
+        .slide-produto { display:flex; align-items:center; gap:3.5rem; width:100%; }
+        @media(max-width:700px){ .slide-produto{flex-direction:column;gap:1.5rem;} .hero-slide{padding:2rem 1.5rem;} }
+        .slide-produto-img { width:240px; min-width:200px; border-radius:16px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.5); flex-shrink:0; }
+        .slide-produto-img img { width:100%; height:300px; object-fit:cover; display:block; }
+        .slide-produto-badge { display:inline-block; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.68rem; padding:0.28rem 0.75rem; border-radius:999px; letter-spacing:0.08em; margin-bottom:1rem; }
+        .slide-produto-body h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:clamp(1.5rem,3.5vw,2.2rem); line-height:1.15; color:#fff; margin-bottom:0.8rem; }
+        .slide-produto-body p { font-size:0.95rem; color:rgba(255,255,255,0.60); line-height:1.65; margin-bottom:1.4rem; }
+        .preco-hero { display:flex; align-items:baseline; gap:0.7rem; margin-bottom:1.4rem; flex-wrap:wrap; }
+        .preco-hero-de { font-size:1rem; color:rgba(255,255,255,0.30); text-decoration:line-through; font-family:'Montserrat',sans-serif; }
+        .preco-hero-por { font-family:'Montserrat',sans-serif; font-weight:900; font-size:2rem; }
+        #hero-dots { position:absolute; bottom:1.8rem; left:50%; transform:translateX(-50%); display:flex; gap:0.6rem; z-index:10; }
+        .hero-dot { width:10px; height:10px; border-radius:50%; border:none; cursor:pointer; padding:0; background:rgba(255,255,255,0.28); transition:all 0.3s; }
+        .hero-dot.active { background:#14B8A6; width:28px; border-radius:999px; }
+        .hero-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); border-radius:50%; width:44px; height:44px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10; font-size:1.2rem; transition:background 0.2s,color 0.2s; border:1px solid rgba(255,255,255,0.15); }
+        .hero-arrow:hover { background:rgba(20,184,166,0.25); color:#fff; }
+        .hero-arrow.prev { left:1.2rem; }
+        .hero-arrow.next { right:1.2rem; }
+      </style>
+
+      <div id="hero-carousel">
+        <button class="hero-arrow prev" onclick="heroSlide(heroCurrent-1)">&#8592;</button>
+        <button class="hero-arrow next" onclick="heroSlide(heroCurrent+1)">&#8594;</button>
+
+        <!-- SLIDE 0 — MARCA -->
+        <div class="hero-slide active slide-brand">
+          <div class="hero-slide-inner">
+            <img src="assets/logos/logo-horizontal-transparente.png" class="brand-logo" alt="Apoiaris">
+            <h1>Conhecimento que<br><span class="teal">Transforma</span><br><span class="roxo">Vidas.</span></h1>
             <p>E-books práticos para quem quer aprender de verdade — sem enrolação, sem teoria inútil. Conteúdo direto ao ponto para o seu dia a dia.</p>
-
-            <!-- CARROSSEL -->
-            <div id="apoiaris-carousel" style="margin-top:2rem; position:relative; overflow:hidden; border-radius:16px;">
-
-              <!-- Slide 1 — Guia IR Grátis (destaque) -->
-              <div class="apoiaris-slide" style="display:block;">
-                <div style="
-                  background: linear-gradient(135deg, rgba(20,184,166,0.18) 0%, rgba(197,168,128,0.14) 100%);
-                  border: 1.5px solid rgba(20,184,166,0.35);
-                  border-radius:16px; padding:1.5rem 1.8rem;
-                  display:flex; align-items:center; gap:1.4rem;
-                ">
-                  <div style="font-size:2.8rem; flex-shrink:0;">📄</div>
-                  <div style="flex:1;">
-                    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.3rem; flex-wrap:wrap;">
-                      <span style="background:#14B8A6; color:#1E2640; font-size:0.65rem; font-weight:900; padding:0.2rem 0.6rem; border-radius:999px; font-family:'Montserrat',sans-serif; letter-spacing:0.05em;">GRÁTIS</span>
-                      <span style="color:rgba(255,255,255,0.35); font-size:0.75rem; text-decoration:line-through;">de R$ 39,90</span>
-                      <span style="color:#C5A880; font-weight:800; font-size:0.85rem; font-family:'Montserrat',sans-serif;">por R$ 0,00</span>
-                    </div>
-                    <p style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.95rem; color:#fff; margin:0 0 0.4rem; line-height:1.3;">Guia Completo do Novo IR 2026</p>
-                    <p style="font-size:0.78rem; color:rgba(255,255,255,0.55); margin:0 0 0.8rem; line-height:1.4;">PDF gratuito com tudo sobre a reforma do Imposto de Renda — isenção, faixas, fórmulas e exemplos práticos.</p>
-                    <a href="catalogo/guia-ir-2026.html" style="display:inline-block; background:#C5A880; color:#1E2640; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.78rem; padding:0.5rem 1.2rem; border-radius:8px; text-decoration:none; letter-spacing:0.03em;" onclick="fbq('track','ViewContent',{content_name:'Guia IR 2026',value:0,currency:'BRL'})">Baixar grátis →</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 2 — 101 Dicas Trânsito -->
-              <div class="apoiaris-slide" style="display:none;">
-                <div style="
-                  background: linear-gradient(135deg, rgba(124,58,237,0.18) 0%, rgba(20,184,166,0.10) 100%);
-                  border: 1.5px solid rgba(124,58,237,0.30);
-                  border-radius:16px; padding:1.5rem 1.8rem;
-                  display:flex; align-items:center; gap:1.4rem;
-                ">
-                  <div style="font-size:2.8rem; flex-shrink:0;">🚗</div>
-                  <div style="flex:1;">
-                    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.3rem; flex-wrap:wrap;">
-                      <span style="background:#7C3AED; color:#fff; font-size:0.65rem; font-weight:900; padding:0.2rem 0.6rem; border-radius:999px; font-family:'Montserrat',sans-serif;">⭐ MAIS VENDIDO</span>
-                    </div>
-                    <p style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.95rem; color:#fff; margin:0 0 0.4rem; line-height:1.3;">101 Dicas de Sobrevivência no Trânsito</p>
-                    <p style="font-size:0.78rem; color:rgba(255,255,255,0.55); margin:0 0 0.8rem; line-height:1.4;">O guia definitivo para novos motoristas. Das regras básicas às situações de risco.</p>
-                    <a href="catalogo/transitosemmedo.html" style="display:inline-block; background:#7C3AED; color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.78rem; padding:0.5rem 1.2rem; border-radius:8px; text-decoration:none;" onclick="fbq('track','ViewContent',{content_name:'101 Dicas Transito',value:24.90,currency:'BRL'})">Ver oferta — R$ 24,90 →</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 3 — Mapa da Mina -->
-              <div class="apoiaris-slide" style="display:none;">
-                <div style="
-                  background: linear-gradient(135deg, rgba(197,168,128,0.16) 0%, rgba(20,184,166,0.10) 100%);
-                  border: 1.5px solid rgba(197,168,128,0.28);
-                  border-radius:16px; padding:1.5rem 1.8rem;
-                  display:flex; align-items:center; gap:1.4rem;
-                ">
-                  <div style="font-size:2.8rem; flex-shrink:0;">🛍️</div>
-                  <div style="flex:1;">
-                    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.3rem; flex-wrap:wrap;">
-                      <span style="background:#C5A880; color:#1E2640; font-size:0.65rem; font-weight:900; padding:0.2rem 0.6rem; border-radius:999px; font-family:'Montserrat',sans-serif;">🛒 COMPRAS</span>
-                    </div>
-                    <p style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.95rem; color:#fff; margin:0 0 0.4rem; line-height:1.3;">O Mapa da Mina na 44</p>
-                    <p style="font-size:0.78rem; color:rgba(255,255,255,0.55); margin:0 0 0.8rem; line-height:1.4;">Guia estratégico de compras — economize tempo e dinheiro nas melhores galerias.</p>
-                    <a href="catalogo/mapadamina44.html" style="display:inline-block; background:#C5A880; color:#1E2640; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.78rem; padding:0.5rem 1.2rem; border-radius:8px; text-decoration:none;" onclick="fbq('track','ViewContent',{content_name:'Mapa Mina 44',value:27.90,currency:'BRL'})">Ver oferta — R$ 27,90 →</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Indicadores -->
-              <div style="display:flex; justify-content:center; gap:0.5rem; margin-top:0.8rem;">
-                <button class="apoiaris-dot active-dot" onclick="goToSlide(0)" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:#14B8A6;transition:all 0.3s;"></button>
-                <button class="apoiaris-dot" onclick="goToSlide(1)" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:rgba(255,255,255,0.25);transition:all 0.3s;"></button>
-                <button class="apoiaris-dot" onclick="goToSlide(2)" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:rgba(255,255,255,0.25);transition:all 0.3s;"></button>
-              </div>
-            </div>
-            <!-- /CARROSSEL -->
-          </div>
-
-          <!-- LOGO DIREITA — usa logo transparente pra evitar fundo branco -->
-          <div style="display:flex; align-items:center; justify-content:center;">
-            <div style="
-              background: radial-gradient(ellipse at center, rgba(20,184,166,0.12) 0%, rgba(124,58,237,0.10) 60%, transparent 100%);
-              border: 1.5px solid rgba(20,184,166,0.20);
-              border-radius: 24px;
-              padding: 3rem 2.5rem;
-              display: flex; flex-direction: column;
-              align-items: center; gap: 1.5rem;
-              backdrop-filter: blur(8px);
-              min-width: 260px;
-            ">
-              <img src="assets/logos/logo-horizontal-transparente.png"
-                   alt="Apoiaris E-Books"
-                   style="width:180px; height:auto;" />
-              <div style="text-align:center;">
-                <p style="font-size:0.72rem; font-weight:800; color:#14B8A6; letter-spacing:0.16em; text-transform:uppercase; font-family:'Montserrat',sans-serif; margin-bottom:0.3rem;">Grupo Apoiaris</p>
-                <p style="font-size:0.82rem; color:rgba(255,255,255,0.55); font-family:'Montserrat',sans-serif;">Conhecimento Digital</p>
-              </div>
-              <div style="width:40px; height:2px; background:linear-gradient(90deg,#14B8A6,#7C3AED); border-radius:2px;"></div>
-              <p style="font-size:0.78rem; color:rgba(255,255,255,0.40); text-align:center; line-height:1.5; max-width:180px;">
-                E-books práticos para o Brasil
-              </p>
+            <div class="cta-row">
+              <a href="#ebooks" class="btn-ph btn-ph-primary scrolly">Ver todos os e-books →</a>
+              <a href="catalogo/guia-ir-2026.html" class="btn-ph btn-ph-outline">PDF Grátis IR 2026</a>
             </div>
           </div>
+        </div>
 
-        </div><!-- /grid -->
-      </div>
+        <!-- SLIDE 1 — IR 2026 GRÁTIS -->
+        <div class="hero-slide">
+          <div class="hero-slide-inner">
+            <div class="slide-produto">
+              <div class="slide-produto-img">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&q=80&auto=format&fit=crop" alt="Guia IR 2026">
+              </div>
+              <div class="slide-produto-body">
+                <div class="slide-produto-badge" style="background:#14B8A6;color:#1E2640;">🎁 PDF GRATUITO</div>
+                <h2>Guia Completo do Novo IR 2026</h2>
+                <p>Entenda a isenção até R$ 5.000, a faixa de transição e as tabelas oficiais — com exemplos práticos e linguagem simples.</p>
+                <div class="preco-hero">
+                  <span class="preco-hero-de">R$ 39,90</span>
+                  <span class="preco-hero-por" style="color:#14B8A6;">R$ 0,00</span>
+                  <span style="background:#14B8A6;color:#1E2640;font-size:0.65rem;font-weight:900;padding:0.22rem 0.6rem;border-radius:6px;font-family:'Montserrat',sans-serif;">GRÁTIS</span>
+                </div>
+                <a href="catalogo/guia-ir-2026.html" class="btn-ph btn-ph-primary" onclick="fbq('track','ViewContent',{content_name:'Guia IR 2026',value:0,currency:'BRL'})">⬇ Baixar PDF grátis</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 — 101 DICAS -->
+        <div class="hero-slide">
+          <div class="hero-slide-inner">
+            <div class="slide-produto">
+              <div class="slide-produto-img">
+                <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=480&q=80&auto=format&fit=crop" alt="101 Dicas Trânsito">
+              </div>
+              <div class="slide-produto-body">
+                <div class="slide-produto-badge" style="background:#7C3AED;color:#fff;">⭐ MAIS VENDIDO</div>
+                <h2>101 Dicas de Sobrevivência no Trânsito</h2>
+                <p>O guia definitivo para novos motoristas. Das regras básicas às situações de risco — tudo que você precisa para dirigir com confiança.</p>
+                <div class="preco-hero">
+                  <span class="preco-hero-de">R$ 47,00</span>
+                  <span class="preco-hero-por" style="color:#7C3AED;">R$ 24,90</span>
+                </div>
+                <a href="catalogo/transitosemmedo.html" class="btn-ph" style="background:#7C3AED;color:#fff;box-shadow:0 4px 20px rgba(124,58,237,0.4);" onclick="fbq('track','ViewContent',{content_name:'101 Dicas Transito',value:24.90,currency:'BRL'})">Ver oferta →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 — MAPA DA MINA -->
+        <div class="hero-slide">
+          <div class="hero-slide-inner">
+            <div class="slide-produto">
+              <div class="slide-produto-img">
+                <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=480&q=80&auto=format&fit=crop" alt="Mapa da Mina na 44">
+              </div>
+              <div class="slide-produto-body">
+                <div class="slide-produto-badge" style="background:#C5A880;color:#1E2640;">COMPRAS</div>
+                <h2>O Mapa da Mina na 44</h2>
+                <p>Guia estratégico de compras com tudo que você precisa saber antes de visitar a 44 — economize tempo e dinheiro nas melhores galerias.</p>
+                <div class="preco-hero">
+                  <span class="preco-hero-de">R$ 59,00</span>
+                  <span class="preco-hero-por" style="color:#C5A880;">R$ 27,90</span>
+                </div>
+                <a href="catalogo/mapadamina44.html" class="btn-ph" style="background:#C5A880;color:#1E2640;box-shadow:0 4px 20px rgba(197,168,128,0.4);" onclick="fbq('track','ViewContent',{content_name:'Mapa Mina 44',value:27.90,currency:'BRL'})">Ver oferta →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="hero-dots">
+          <button class="hero-dot active" onclick="heroSlide(0)"></button>
+          <button class="hero-dot" onclick="heroSlide(1)"></button>
+          <button class="hero-dot" onclick="heroSlide(2)"></button>
+          <button class="hero-dot" onclick="heroSlide(3)"></button>
+        </div>
+      </div><!-- /hero-carousel -->
+
     </section>
 
     <!-- E-BOOKS — Spotlights -->
@@ -411,29 +430,22 @@
     });
   </script>
 
-  <!-- CARROSSEL JS -->
+  <!-- HERO CAROUSEL JS -->
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.apoiaris-slide');
-    const dots = document.querySelectorAll('.apoiaris-dot');
-    let autoTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 4500);
+    let heroCurrent = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-dot');
+    let heroTimer = setInterval(() => heroSlide((heroCurrent + 1) % heroSlides.length), 5000);
 
-    function goToSlide(n) {
-      slides[currentSlide].style.display = 'none';
-      dots[currentSlide].style.background = 'rgba(255,255,255,0.25)';
-      dots[currentSlide].style.width = '8px';
-      currentSlide = n;
-      slides[currentSlide].style.display = 'block';
-      dots[currentSlide].style.background = '#14B8A6';
-      dots[currentSlide].style.width = '22px';
-      dots[currentSlide].style.borderRadius = '999px';
-      clearInterval(autoTimer);
-      autoTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 4500);
+    function heroSlide(n) {
+      heroSlides[heroCurrent].classList.remove('active');
+      heroDots[heroCurrent].classList.remove('active');
+      heroCurrent = ((n % heroSlides.length) + heroSlides.length) % heroSlides.length;
+      heroSlides[heroCurrent].classList.add('active');
+      heroDots[heroCurrent].classList.add('active');
+      clearInterval(heroTimer);
+      heroTimer = setInterval(() => heroSlide((heroCurrent + 1) % heroSlides.length), 5000);
     }
-
-    // Inicializa primeiro dot como ativo
-    dots[0].style.width = '22px';
-    dots[0].style.borderRadius = '999px';
   </script>
 
 </body>
